@@ -8,9 +8,10 @@ axios(URL)
 		const html = resp.data;
 
 		const $ = cheerio.load(html);
-		const stats = $('.table.table-bordered.table-hover.downloads > tbody > tr');
-
-		stats.each(function () {
+		const countriesWithRates = $(
+			'.table.table-bordered.table-hover.downloads > tbody > tr'
+		);
+		countriesWithRates.each(function () {
 			const rates = $(this).find('td').text();
 			console.log(rates);
 		});
